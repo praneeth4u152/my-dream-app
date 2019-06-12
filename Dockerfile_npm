@@ -4,8 +4,8 @@ FROM mavenqa.got.volvo.net:18443/maven:3.5.4-jdk-8-alpine
 USER root
 
 # set environment variables
-ENV http_proxy http://A239123:password7@Pxblr1.blr.volvo.net:8080/
-ENV https_proxy https://A239123:password7@Pxblr1.blr.volvo.net:8080/
+ENV http_proxy http://a239123:password7@pxblr1.blr.volvo.net:8080/
+ENV https_proxy http://a239123:password7@pxblr1.blr.volvo.net:8080/
 
 # install node and npm
 RUN apk add nodejs
