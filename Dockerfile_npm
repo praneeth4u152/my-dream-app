@@ -5,7 +5,7 @@ USER root
 
 # set environment variables
 ENV http_proxy http://A239123:password7@Pxblr1.blr.volvo.net:8080/
-ENV https_proxy http://A239123:password7@Pxblr1.blr.volvo.net:8080/
+ENV https_proxy https://A239123:password7@Pxblr1.blr.volvo.net:8080/
 
 # install node and npm
 RUN apk add nodejs
