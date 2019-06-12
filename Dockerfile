@@ -1,5 +1,5 @@
 ##my-angular-app
-FROM mavenqa.got.volvo.net:18443/node:12.2.0
+FROM mavenqa.got.volvo.net:18443/node:latest
 
 WORKDIR /usr/src/app
 
