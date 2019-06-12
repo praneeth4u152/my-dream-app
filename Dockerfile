@@ -1,4 +1,4 @@
-##my-angular-app
+
 FROM mavenqa.got.volvo.net:18443/node:latest
 
 WORKDIR /usr/src/app
