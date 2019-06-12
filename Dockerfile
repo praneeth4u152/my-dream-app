@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM mavenqa.got.volvo.net:18443/nginx:1.14.1-alpine
+FROM mavenqa.got.volvo.net:18443/nginx:1.12.2
 RUN rm /etc/nginx/conf.d/default.conf 
 
 COPY dist/my-dream-app/ /usr/share/nginx/html/
