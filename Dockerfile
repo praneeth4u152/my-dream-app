@@ -21,7 +21,7 @@ COPY --from=node /usr/src/app/dist/my-dream-app /usr/share/nginx/html
 
 ## From 'builder' stage copy over the artifacts in dist folder to default nginx public folder
 
-COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY --from=node /usr/src/app/nginx.conf /etc/nginx/nginx.conf
 
 WORKDIR /usr/share/nginx/html
 
