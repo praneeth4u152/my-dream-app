@@ -1,4 +1,4 @@
-FROM mavenqa.got.volvo.net:18443/node:latest
+FROM mavenqa.got.volvo.net:18443/node:latest as node
 WORKDIR /usr/src/app
 COPY package*.json ./
 
@@ -14,14 +14,14 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM mavenqa.got.volvo.net:18443/nginx:1.12.2
+FROM mavenqa.got.volvo.net:18443/nginx:1.12.2 as nginx
 RUN rm /etc/nginx/conf.d/default.conf 
 
-COPY dist/ /usr/share/nginx/html/
+COPY --from=node /usr/src/app/dist/my-dream-app /usr/share/nginx/html
 
 ## From 'builder' stage copy over the artifacts in dist folder to default nginx public folder
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=node /usr/src/app/nginx.conf /etc/nginx/nginx.conf
 
 WORKDIR /usr/share/nginx/html
 
