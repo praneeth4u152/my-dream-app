@@ -1,0 +1,29 @@
+# base image
+FROM mavenqa.got.volvo.net:18443/maven:3.5.4-jdk-8-alpine
+
+USER root
+
+# set environment variables
+ENV http_proxy http://A239123:password7@pxblr1.blr.volvo.net:8080/
+ENV https_proxy http://A239123:password7@pxblr1.blr.volvo.net:8080/
+
+# install node and npm
+RUN apk add nodejs
+RUN apk add npm
+
+# update npm as global
+RUN npm i -g npm
+
+# configure npm
+# set proxy
+RUN npm config -g set proxy ${http_proxy}
+RUN npm config -g set https-proxy ${https_proxy}
+
+# set different than default /.npm folder for npm cache (Jenkins Workspace will be used)
+RUN npm config -g set cache /tmp
+
+# needed for none root user usage
+RUN chmod -R +x /tmp/
+RUN chmod -R g+rwX /tmp/
+
+RUN npm --v
