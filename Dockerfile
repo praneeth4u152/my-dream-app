@@ -15,8 +15,6 @@ COPY . .
 RUN npm run build
 
 FROM mavenqa.got.volvo.net:18443/nginx:1.14.1-alpine
-## Remove default nginx website
-## RUN rm -rf /usr/share/nginx/html/*
 
 
 RUN rm /etc/nginx/conf.d/default.conf 
@@ -31,5 +29,4 @@ WORKDIR /usr/share/nginx/html
 
 RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx /etc/nginx/
 CMD ["nginx", "-g", "daemon off;"]
-
 EXPOSE 4200
