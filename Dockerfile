@@ -25,6 +25,6 @@ COPY --from=node /usr/src/app/nginx.conf /etc/nginx/nginx.conf
 
 WORKDIR /usr/share/nginx/html
 
-RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx /etc/nginx/
+#RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx /etc/nginx/
 CMD ["nginx", "-g", "daemon off;"]
 EXPOSE 4200
