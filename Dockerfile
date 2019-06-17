@@ -1,4 +1,6 @@
 FROM mavenqa.got.volvo.net:18443/node:latest as node
+
+USER root
 WORKDIR /usr/src/app
 COPY package*.json ./
 
