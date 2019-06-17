@@ -17,6 +17,7 @@ COPY . .
 RUN npm run build
 
 FROM mavenqa.got.volvo.net:18443/nginx:1.12.2
+USER root
 RUN rm /etc/nginx/conf.d/default.conf 
 
 COPY --from=node /usr/src/app/dist/my-dream-app /usr/share/nginx/html
